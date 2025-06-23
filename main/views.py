@@ -1,10 +1,38 @@
-from django.shortcuts import render, get_object_or_404
 from .models import GeneralStatistics
-from datetime import datetime, timedelta
+from django.shortcuts import render
 import requests
+from datetime import datetime, timedelta
 
 def index(request):
     return render(request, 'main/index.html')
+
+def gen_statics_view(request):
+    general_statistics = GeneralStatistics.objects.get(id=1)
+    sections = general_statistics.sections.all()
+    return render(request, 'main/general_statistics.html', {
+        'sections': sections
+    })
+
+def demand_view(request):
+    demand = GeneralStatistics.objects.get(id=2)
+    sections = demand.sections.all()
+    return render(request, 'main/demand.html', {
+        'sections': sections
+    })
+
+def geograph_view(request):
+    geography = GeneralStatistics.objects.get(id=3)
+    sections = geography.sections.all()
+    return render(request, 'main/geography.html', {
+        'sections': sections
+    })
+
+def skill_view(request):
+    skills = GeneralStatistics.objects.get(id=4)
+    sections = skills.sections.all()
+    return render(request, 'main/skills.html', {
+        'sections': sections
+    })
 
 # Последние вакансии QA
 def get_QA_vacancies():

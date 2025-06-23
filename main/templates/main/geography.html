@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+
+{% block title %}География{% endblock %}
+
+{% block content %}
+
+<h2>География</h2>
+
+<div class="parent">
+
+    <div class="container-stat">
+      <div class="left">
+        <h3>{{ sections.0.title }}</h3>
+        <img src="{{ sections.0.graph.url }}" />
+      </div>
+
+      <div class="right">
+        <div class="statistics">
+          {{ sections.0.table_html|safe }}
+        </div>
+      </div>
+    </div>
+
+    <div class="container-stat">
+      <div class="left">
+        <h3>{{ sections.1.title }}</h3>
+        <img src="{{ sections.1.graph.url }}" />
+      </div>
+
+      <div class="right">
+        <div class="statistics">
+          {{ sections.1.table_html|safe }}
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
