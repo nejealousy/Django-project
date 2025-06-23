@@ -1,8 +1,8 @@
 from django.db import models
 
 class GeneralStatistics(models.Model):
-    title = models.CharField(max_length=255, verbose_name="Заголовок страницы")
-    description = models.TextField(blank=True, verbose_name="Описание страницы")
+    title = models.CharField(max_length=255, verbose_name="Заголовок")
+    description = models.TextField(blank=True, verbose_name="Описание")
 
     class Meta:
         verbose_name = "Статистика"
@@ -19,8 +19,8 @@ class StatisticsSection(models.Model):
         related_name='sections',
         verbose_name="Общая статистика"
     )
-    title = models.CharField(max_length=255, verbose_name="Название раздела")
-    table_html = models.TextField(verbose_name="HTML таблица")
+    title = models.CharField(max_length=255, verbose_name="Раздел")
+    table_html = models.TextField(verbose_name="HTML таблица(текстом)")
     graph = models.ImageField(upload_to='statistics/graphs/', verbose_name="График")
 
     class Meta:
