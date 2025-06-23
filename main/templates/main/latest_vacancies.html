@@ -1,0 +1,34 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Последние вакансии{% endblock %}
+
+{% block content %}
+
+<h2>Последние вакансии для Специалист техподдержки</h2>  <!-- Заголовок раздела -->
+<ul class='ul-latest-vacancy'>
+  {% for vacancy in vacancies %}
+  <li class='li-latest-vacancy'>
+    <h2 class="latest-vacancies">{{ vacancy.name }}</h2>
+    {% if vacancy.company %}
+      <p class="vacancy-inform"><strong>Компания:</strong> {{ vacancy.company }}</p>
+    {% endif %}
+    {% if vacancy.description %}
+      <p class="vacancy-inform"><strong>Описание:</strong> <div class='inside'>{{ vacancy.description|safe }}</div></p>
+    {% endif %}
+    {% if vacancy.skills %}
+      <p class="vacancy-inform"><strong>Навыки:</strong> {{ vacancy.skills }}</p>
+    {% endif %}
+    {% if vacancy.salary %}
+      <p class="vacancy-inform"><strong>Оклад:</strong> {{ vacancy.salary }}</p>
+    {% endif %}
+    {% if vacancy.region %}
+      <p class="vacancy-inform"><strong>Регион:</strong> {{ vacancy.region }}</p>
+    {% endif %}
+    {% if vacancy.published_at %}
+      <p class="vacancy-inform"><strong>Дата публикации:</strong> {{ vacancy.published_at }}</p>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
