@@ -3,45 +3,22 @@
 {% block title %}Навыки{% endblock %}
 
 {% block content %}
-
 <h2>Навыки</h2>
 
 <div class="parent">
-
-    <div class="container-stat">
+  {% for section in sections %}
+    <div class="container-stat {% if forloop.last %}skills-last{% endif %}">
       <div class="left">
-        <h3>{{ sections.0.title }}</h3>
-        <img src="{{ sections.0.graph.url }}" />
+        <h3>{{ section.title }}</h3>
+        <img src="{{ section.graph.url }}" />
       </div>
-
       <div class="right">
         <div class="statistics">
-          {{ sections.0.table_html|safe }}
+          {{ section.table_html|safe }}
         </div>
       </div>
     </div>
-
-    <div class="container-stat skills-last">
-      <div class="left">
-        <h3>{{ sections.1.title }}</h3>
-        <img src="{{ sections.1.graph.url }}" />
-        <img src="{{ sections.2.graph.url }}" />
-        <img src="{{ sections.3.graph.url }}" />
-        <img src="{{ sections.4.graph.url }}" />
-        <img src="{{ sections.5.graph.url }}" />
-        <img src="{{ sections.6.graph.url }}" />
-        <img src="{{ sections.7.graph.url }}" />
-        <img src="{{ sections.8.graph.url }}" />
-        <img src="{{ sections.9.graph.url }}" />
-        <img src="{{ sections.10.graph.url }}" />
-      </div>
-
-      <div class="right">
-        <div class="statistics">
-          {{ sections.1.table_html|safe }}
-        </div>
-      </div>
-    </div>
+  {% endfor %}
 </div>
 
 {% endblock %}
